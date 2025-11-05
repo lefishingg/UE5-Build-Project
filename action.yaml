@@ -147,7 +147,7 @@ runs:
         $command = "& `"$runUatPath`" BuildCookRun " +
                   "-project=`"$uprojectPath`" " +
                   "-clientconfig=$buildConfig -serverconfig=$buildConfig -platform=$platform $mapsArg " +
-                  "$cleanArg $serverArg $cookArg $stageArg $pakArg $packageArg $archiveArg $editorArg $encryptIniArg $releaseArg $patchArg " +
+                  "$cleanArg $serverArg $cookArg -cookall $stageArg $pakArg $packageArg $archiveArg $editorArg $encryptIniArg $releaseArg $patchArg " +
                   "-noP4 -build -unattended -utf8output -prereqs $nullrhiArg"
 
         Write-Output "Executing command: $command"
