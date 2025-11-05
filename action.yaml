@@ -142,12 +142,11 @@ runs:
         $encryptIniArg = if ($encryptIni -eq 'true') { "-encryptinifiles" } else { "" }
         $releaseArg = if ($release -ne 'false') { "-createreleaseversion=$release" } else { "" }
         $patchArg = if ($patch -ne 'false') { "-generatepatch -basedonreleaseversion=$patch" } else { "" }
-        $mapsArg = if ($maps -eq 'true') { "" } else { "-map=$maps" }
 
         $command = "& `"$runUatPath`" BuildCookRun " +
                   "-project=`"$uprojectPath`" " +
-                  "-clientconfig=$buildConfig -serverconfig=$buildConfig -platform=$platform $mapsArg " +
-                  "$cleanArg $serverArg $cookArg -cookall $stageArg $pakArg $packageArg $archiveArg $editorArg $encryptIniArg $releaseArg $patchArg " +
+                  "-clientconfig=$buildConfig -serverconfig=$buildConfig -platform=$platform " +
+                  "$cleanArg $serverArg -cookall $stageArg $pakArg $packageArg $archiveArg $editorArg $encryptIniArg $releaseArg $patchArg " +
                   "-noP4 -build -unattended -utf8output -prereqs $nullrhiArg"
 
         Write-Output "Executing command: $command"
